@@ -13,7 +13,7 @@ api = Blueprint('api', __name__)
 def handle_hello():
 
     response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
+        "message": "Hello! I'm a message from the backend, check the network tab on the google inspector and you will see the GET request"
     }
 
     return jsonify(response_body), 200
@@ -35,7 +35,7 @@ def create_token():
     user = User.query.filter_by(email=email, password=password).first()
 
     if user is None:
-        return jsonify({"msg": "Email or Password incorrect"}), 401
+        return jsonify({"msg": "Email or Password is incorrect"}), 401
     #access_token = create_access_token(identity=user.id)
     access_token = create_access_token(identity=user.email)
     return jsonify({"access_token": access_token}), 200
