@@ -49,11 +49,15 @@ export const SignUp = () => {
             onChange={(e) => setUserActive(e.target.checked)}
             value={userActive}
           />
-          <label className="form-check-label" for="exampleCheck1">
+          <label className="form-check-label" htmlFor="exampleCheck1">
             Active
           </label>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" 
+          onClick={(e) => {
+              e.preventDefault();
+              navigate("/");
+            }}>
           Submit
         </button>
       </form>
