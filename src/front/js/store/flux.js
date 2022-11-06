@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      token: '',
+      token: "",
       verifiedUser: false,
     },
     actions: {

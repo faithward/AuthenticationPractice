@@ -13,6 +13,14 @@ export const Home = () => {
     actions.getVerified();
   }, [store.token]);
   
+  useEffect(() => {
+    if (store.verifiedUser) {
+      navigate("/single");
+    }
+  }, [store.verifiedUser]);
+
+  console.log(store.verifiedUser)
+
   console.log(store.token)
   return (
     <div className="d-flex" style={{ height: "80vh" }}>

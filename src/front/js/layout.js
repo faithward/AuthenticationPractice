@@ -15,6 +15,7 @@ const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
   // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
   const basename = process.env.BASENAME || "";
+  const { store, actions } = useContext(Context);
 
   return (
     <div>
@@ -24,7 +25,11 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<SignUp />} path="/signup" />
-            <Route element={<Single />} path="/single" />
+            {store.verifiedUser ? (
+              <Route element={<Single />} path="/single" />
+            ) : (
+              <Route element={<h1>Not Found!</h1>} />
+            )}
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />
